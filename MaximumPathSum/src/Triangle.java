@@ -87,7 +87,7 @@ public class Triangle {
         while (s.hasNext()) {
             t.insert(s.nextInt());
         }
-        System.out.println(t.bestInRow(14));
+        System.out.println(t.getNode(0, 0).getBestSum());
     }
     
 }

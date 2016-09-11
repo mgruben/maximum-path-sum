@@ -50,6 +50,11 @@ public class Node implements Comparable<Node> {
         return right.num;
     }
     
+    public int getBestSum() {
+        if (left == null && right == null) return num;
+        else return num + Math.max(left.getBestSum(), right.getBestSum());
+    }
+    
     public int compareTo(Node other) {
         return Integer.valueOf(this.num).compareTo(other.num);
     }
