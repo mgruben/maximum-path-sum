@@ -42,6 +42,16 @@ public class Node implements Comparable<Node> {
         return num;
     }
     
+    private void setNum(int num) {
+        this.num = num;
+    }
+    
+    public void sumToNum(int num) {
+        setNum(getBestSum());
+        left = null;
+        right = null;
+    }
+    
     public int getLeftNum() {
         return left.num;
     }
