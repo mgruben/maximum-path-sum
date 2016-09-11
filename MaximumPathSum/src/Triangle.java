@@ -29,7 +29,6 @@ public class Triangle {
     int row = 0;
     int col = 0;
     ArrayList<Node> l = new ArrayList<>();
-    int[] sums;
     
     public void insert(int i) {
         Node n = new Node(i);
