@@ -26,17 +26,30 @@ import java.util.Scanner;
  * @author Michael <GrubenM@GMail.com>
  */
 public class Triangle {
-    Node top;
     int row = 0;
     int col = 0;
     ArrayList<Node> l = new ArrayList<>();
+    ArrayList<Integer> sums = new ArrayList<>();
     
     public void insert(int i) {
-        l.add(new Node(i));
-        if (row > 0 && col == 0) {
-            
+        Node n = new Node(i);
+        l.add(n);
+        if (row == 0 && col == 0) sums.add(i);
+        else if (row > 0 && col == 0) addAsLeft(n);
+        else if (row > 0 && col == row) addAsRight(n);
+        else {
+            addAsLeft(n);
+            addAsRight(n);
         }
         updateLocation();
+    }
+    
+    private void addAsLeft(Node n) {
+        l.get(toIndex(row - 1, col)).setLeft(n);
+    }
+    
+    private void addAsRight(Node n) {
+        l.get(toIndex(row - 1, col - 1)).setRight(n);
     }
     
     private void updateLocation() {
@@ -66,6 +79,7 @@ public class Triangle {
         while (s.hasNext()) {
             t.insert(s.nextInt());
         }
+        System.out.println(t.getNode(6,0).getRightNum());
     }
     
 }

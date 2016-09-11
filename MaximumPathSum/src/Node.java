@@ -42,6 +42,14 @@ public class Node implements Comparable<Node> {
         return num;
     }
     
+    public int getLeftNum() {
+        return left.num;
+    }
+    
+    public int getRightNum() {
+        return right.num;
+    }
+    
     public int compareTo(Node other) {
         return Integer.valueOf(this.num).compareTo(other.num);
     }
