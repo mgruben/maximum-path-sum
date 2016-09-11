@@ -19,7 +19,7 @@
  *
  * @author Michael <GrubenM@GMail.com>
  */
-public class Node implements Comparable<Node> {
+public class Node {
     private int num;
     private Node left;
     private Node right;
@@ -46,27 +46,31 @@ public class Node implements Comparable<Node> {
         this.num = num;
     }
     
+    /**
+     * Sets the Node's num field to the sum of its children, recursively,
+     * then severs its relationship to its children.
+     * This method is best used iteratively in a bottom-up approach,
+     * by setting the num field for each Node in the second-to-last row of the
+     * triangle first, then moving up one row and repeating until every Node
+     * in the triangle has had its sums calculated.
+     * @param num 
+     */
     public void sumToNum(int num) {
         setNum(getBestSum());
         left = null;
         right = null;
     }
     
-    public int getLeftNum() {
-        return left.num;
-    }
-    
-    public int getRightNum() {
-        return right.num;
-    }
-    
+    /**
+     * Recursive method for determining the best sum of the given node.
+     * This method is computationally prohibitive for high Nodes in large
+     * triangles.
+     * Accordingly, its best use is to return the sum for the second-to-last
+     * row, which can then be assigned as the num for that Node using setNum(). 
+     */
     public int getBestSum() {
         if (left == null && right == null) return num;
         else return num + Math.max(left.getBestSum(), right.getBestSum());
-    }
-    
-    public int compareTo(Node other) {
-        return Integer.valueOf(this.num).compareTo(other.num);
     }
     
     public String toString() {
