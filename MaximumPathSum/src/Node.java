@@ -20,14 +20,26 @@
  * @author Michael <GrubenM@GMail.com>
  */
 public class Node implements Comparable<Node> {
-    int num;
-    Node left;
-    Node right;
+    private int num;
+    private Node left;
+    private Node right;
     
     public Node(int num) {
         this.num = num;
         left = null;
         right = null;
+    }
+    
+    public void setLeft(Node n) {
+        left = n;
+    }
+    
+    public void setRight(Node n) {
+        right = n;
+    }
+    
+    public int getNum() {
+        return num;
     }
     
     public int compareTo(Node other) {
