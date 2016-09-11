@@ -57,7 +57,6 @@ public class Triangle {
     /**
      * Assuming that the node being added is to the right of some higher node,
      * retrieves that node and sets this node as its right child.
-     * @param n 
      */
     private void addAsRight(Node n) {
         l.get(toIndex(row - 1, col - 1)).setRight(n);
@@ -86,7 +85,6 @@ public class Triangle {
     /**
      * Returns the head position for where the next Node would be inserted.
      * Thus, for a full triangle of i rows, this method returns i + 1.
-     * 
      */
     public int getRow() {
         return row;
@@ -98,7 +96,6 @@ public class Triangle {
      * when higher rows are set).
      * The best use of this method is to start from the second to bottom row,
      * then iterate upwards to the top row.
-     * @param row 
      */
     public void setSums(int row) {
         for (int i = toIndex(row, 0); i <= toIndex(row, 0) + row; i++) {

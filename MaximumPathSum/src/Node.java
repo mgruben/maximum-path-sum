@@ -56,7 +56,6 @@ public class Node {
      * by setting the num field for each Node in the second-to-last row of the
      * triangle first, then moving up one row and repeating until every Node
      * in the triangle has had its sums calculated.
-     * @param num 
      */
     public void sumToNum(int num) {
         setNum(getBestSum());
