@@ -22,7 +22,11 @@ import java.util.Scanner;
  */
 
 /**
- *
+ * A triangle data structure, which adds nodes into a triangle from top to
+ * bottom, and from left to right.
+ * Nodes are stored in a 1D ArrayList, and "row" and "col" are stored to
+ * allow newly-added Nodes to be assigned as the children of previously-added
+ * Nodes.
  * @author Michael <GrubenM@GMail.com>
  */
 public class Triangle {

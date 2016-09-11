@@ -16,7 +16,10 @@
  */
 
 /**
- *
+ * A Node data structure.
+ * This data structure has the added ability to sever its children Nodes
+ * after having calculated which of them combine with itself to yield the
+ * largest sum.
  * @author Michael <GrubenM@GMail.com>
  */
 public class Node {
