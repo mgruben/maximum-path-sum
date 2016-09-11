@@ -37,10 +37,15 @@ public class Triangle {
     
     public void insert(Node n) {
         l.add(n);
+        updateLocation();
     }
     
     public void insert(int i) {
         l.add(new Node(i));
+        updateLocation();
+    }
+    
+    private void updateLocation() {
         if (row == col) {
             col = 0;
             row++;
