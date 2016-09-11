@@ -1,5 +1,8 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
  * Copyright (C) 2016 Michael <GrubenM@GMail.com>
@@ -49,12 +52,13 @@ public class Triangle {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Triangle t = new Triangle();
-        t.insert(new Node(2));
-        t.insert(new Node(3));
-        t.insert(new Node(4), 1, 1);
-        System.out.println(t.getNode(1, 1));
+        File f = new File("Triangle.txt");
+        Scanner s = new Scanner(f);
+        while (s.hasNext()) {
+            System.out.println(s.nextInt());
+        }
     }
     
 }
