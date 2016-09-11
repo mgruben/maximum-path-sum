@@ -39,11 +39,19 @@ public class Triangle {
     
     public void insert(int i) {
         l.add(new Node(i));
-        
+        System.out.println(l.size());
     }
     
     private int toIndex(int row, int col) {
         return row * (row+1) / 2 + col;
+    }
+    
+    private int toRow(int index) {
+        return 0;
+    }
+    
+    private int toColumn(int index) {
+        return 0;
     }
     
     public Node getNode(int row, int col) {
@@ -56,8 +64,16 @@ public class Triangle {
         Triangle t = new Triangle();
         File f = new File("Triangle.txt");
         Scanner s = new Scanner(f);
+        int row = 0;
+        int col = 0;
         while (s.hasNext()) {
-            System.out.println(s.nextInt());
+            t.insert(s.nextInt());
+            System.out.println(" " + row + " " + col);
+            if (row == col) {
+                col = 0;
+                row++;
+            }
+            else col++;
         }
     }
     
