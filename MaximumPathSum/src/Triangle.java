@@ -41,15 +41,28 @@ public class Triangle {
         }
         updateLocation();
     }
-        
+    
+    /**
+     * Assuming that the node being added is to the left of some higher node,
+     * retrieves that node and sets this node as its left child.
+     */
     private void addAsLeft(Node n) {
         l.get(toIndex(row - 1, col)).setLeft(n);
     }
     
+    /**
+     * Assuming that the node being added is to the right of some higher node,
+     * retrieves that node and sets this node as its right child.
+     * @param n 
+     */
     private void addAsRight(Node n) {
         l.get(toIndex(row - 1, col - 1)).setRight(n);
     }
     
+    /**
+     * Moves the head for where the next Node would be inserted.
+     * Primarily a bookkeeping method.
+     */
     private void updateLocation() {
         if (row == col) {
             col = 0;
@@ -97,8 +110,6 @@ public class Triangle {
         Triangle t = new Triangle();
         File f = new File("largeTriangle.txt"); // "Triangle.txt" for #18
         Scanner s = new Scanner(f);
-        int row = 0;
-        int col = 0;
         while (s.hasNext()) {
             t.insert(s.nextInt());
         }
