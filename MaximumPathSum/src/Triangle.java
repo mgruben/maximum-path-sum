@@ -27,6 +27,8 @@ import java.util.Scanner;
  */
 public class Triangle {
     Node top;
+    int row = 0;
+    int col = 0;
     ArrayList<Node> l = new ArrayList<>();
     
     public void insert(Node n, int row, int col) {
@@ -39,7 +41,11 @@ public class Triangle {
     
     public void insert(int i) {
         l.add(new Node(i));
-        System.out.println(l.size());
+        if (row == col) {
+            col = 0;
+            row++;
+        }
+        else col++;
     }
     
     private int toIndex(int row, int col) {
@@ -68,12 +74,6 @@ public class Triangle {
         int col = 0;
         while (s.hasNext()) {
             t.insert(s.nextInt());
-            System.out.println(" " + row + " " + col);
-            if (row == col) {
-                col = 0;
-                row++;
-            }
-            else col++;
         }
     }
     
