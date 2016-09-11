@@ -25,12 +25,18 @@ import java.util.ArrayList;
 public class Triangle {
     Node top;
     ArrayList<Node> l = new ArrayList<>();
+    
     public void insert(Node n, int row, int col) {
         l.add(toIndex(row, col), n);
     }
     
     public void insert(Node n) {
         l.add(n);
+    }
+    
+    public void insert(int i) {
+        l.add(new Node(i));
+        
     }
     
     private int toIndex(int row, int col) {
@@ -47,7 +53,8 @@ public class Triangle {
         Triangle t = new Triangle();
         t.insert(new Node(2));
         t.insert(new Node(3));
-        System.out.println(t.getNode(1, 0));
+        t.insert(new Node(4), 1, 1);
+        System.out.println(t.getNode(1, 1));
     }
     
 }
