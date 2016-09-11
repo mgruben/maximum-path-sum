@@ -29,19 +29,27 @@ public class Triangle {
     int row = 0;
     int col = 0;
     ArrayList<Node> l = new ArrayList<>();
-    ArrayList<Integer> sums = new ArrayList<>();
+    int[] sums;
     
     public void insert(int i) {
         Node n = new Node(i);
         l.add(n);
-        if (row == 0 && col == 0) sums.add(i);
-        else if (row > 0 && col == 0) addAsLeft(n);
+        if (row > 0 && col == 0) addAsLeft(n);
         else if (row > 0 && col == row) addAsRight(n);
-        else {
+        else if (row > 0 && col > 0) {
             addAsLeft(n);
             addAsRight(n);
         }
         updateLocation();
+    }
+    
+    public int bestInRow(int row) {
+        if (row == 0) return l.get(0).getNum();
+        int max = -1;
+        for (int i = toIndex(row, 0); i < toIndex(row, 0) + row; i++) {
+            if (l.get(i).getNum() > max) max = l.get(i).getNum();
+        }
+        return max;
     }
     
     private void addAsLeft(Node n) {
@@ -79,7 +87,7 @@ public class Triangle {
         while (s.hasNext()) {
             t.insert(s.nextInt());
         }
-        System.out.println(t.getNode(6,0).getRightNum());
+        System.out.println(t.bestInRow(14));
     }
     
 }
