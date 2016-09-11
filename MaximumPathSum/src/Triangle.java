@@ -31,7 +31,6 @@ public class Triangle {
     ArrayList<Node> l = new ArrayList<>();
     int[] sums;
     
-    
     public void insert(int i) {
         Node n = new Node(i);
         l.add(n);
@@ -43,14 +42,7 @@ public class Triangle {
         }
         updateLocation();
     }
-    
-    public void setSums(int row) {
-        for (int i = toIndex(row, 0); i <= toIndex(row, 0) + row; i++) {
-            Node n = l.get(i);
-            n.sumToNum(n.getBestSum());            
-        }
-    }
-    
+        
     private void addAsLeft(Node n) {
         l.get(toIndex(row - 1, col)).setLeft(n);
     }
@@ -71,19 +63,27 @@ public class Triangle {
         return row * (row+1) / 2 + col;
     }
     
+    public Node getNode(int row, int col) {
+        return l.get(toIndex(row, col));
+    }
+    
     public int getRow() {
         return row;
     }
     
-    public Node getNode(int row, int col) {
-        return l.get(toIndex(row, col));
+    public void setSums(int row) {
+        for (int i = toIndex(row, 0); i <= toIndex(row, 0) + row; i++) {
+            Node n = l.get(i);
+            n.sumToNum(n.getBestSum());            
+        }
     }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
         Triangle t = new Triangle();
-        File f = new File("largeTriangle.txt");
+        File f = new File("largeTriangle.txt"); // "Triangle.txt" for #18
         Scanner s = new Scanner(f);
         int row = 0;
         int col = 0;
