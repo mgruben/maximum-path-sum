@@ -46,11 +46,8 @@ public class Triangle {
     
     public void setSums(int row) {
         for (int i = toIndex(row, 0); i <= toIndex(row, 0) + row; i++) {
-            System.out.print(l.get(i).getNum() + " ");
             Node n = l.get(i);
-            n.sumToNum(n.getBestSum());
-            System.out.println(n.getNum());
-            
+            n.sumToNum(n.getBestSum());            
         }
     }
     
@@ -93,8 +90,9 @@ public class Triangle {
         while (s.hasNext()) {
             t.insert(s.nextInt());
         }
-        for (int r = t.getRow() - 1; r >= 0; r--)
+        for (int r = t.getRow() - 2; r >= 0; r--) // Start at second-to-last row
             t.setSums(r);
+        System.out.println(t.getNode(0, 0).getNum());
     }
     
 }
