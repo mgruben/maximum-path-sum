@@ -31,17 +31,11 @@ public class Triangle {
     int col = 0;
     ArrayList<Node> l = new ArrayList<>();
     
-    public void insert(Node n, int row, int col) {
-        l.add(toIndex(row, col), n);
-    }
-    
-    public void insert(Node n) {
-        l.add(n);
-        updateLocation();
-    }
-    
     public void insert(int i) {
         l.add(new Node(i));
+        if (row > 0 && col == 0) {
+            
+        }
         updateLocation();
     }
     
@@ -56,15 +50,7 @@ public class Triangle {
     private int toIndex(int row, int col) {
         return row * (row+1) / 2 + col;
     }
-    
-    private int toRow(int index) {
-        return 0;
-    }
-    
-    private int toColumn(int index) {
-        return 0;
-    }
-    
+        
     public Node getNode(int row, int col) {
         return l.get(toIndex(row, col));
     }
